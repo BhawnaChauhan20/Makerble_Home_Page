@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> My Home Page</title>
+    <script src="script.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-600 p-4 text-white">
+        <div class="container mx-auto flex justify-around items-center">
+            <div class="text-2xl font-bold">Makerble</div>
+            <ul class="flex space-x-6">
+                <li><a href="#" class="hover:underline">Home</a></li>
+                <li><a href="#" class="hover:underline">Profile</a></li>
+                <li><a href="#" class="hover:underline">Tasks</a></li>
+                <li><a href="#" class="hover:underline">Projects</a></li>
+                <li><a href="#" class="hover:underline">Logout</a></li>
+            </ul>
+           
+        </div>
+    </nav>
+
+    <!-- Container -->
+    <div class="container mx-auto px-4 py-6 lg:flex lg:space-x-6">
+
+        <!-- Left Sidebar (Profile Section) -->
+        <aside class="bg-white shadow-lg rounded-lg p-4 lg:w-1/4 mb-6 lg:mb-0">
+            <h2 class="text-xl font-bold text-blue-600 mb-4">Your Profile</h2>
+            <div class="space-y-2">
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/100" alt="Profile Picture" class="rounded-full mx-auto mb-4">
+                    <h3 class="text-lg font-semibold">Bhawna Chauhan</h3>
+                    <p class="text-gray-600">Front-end Developer</p>
+                </div>
+                <hr class="my-4">
+                
+                    <ul class="space-y-2">
+                        <li><a href="#" class="block text-blue-600 ">Edit Profile</a></li>
+                        <li class="block text-blue-600 ">
+
+                            <div class="task-container">
+                                <button id="viewTasksBtn" class="view-tasks-button">View Tasks</button>
+                                <div id="taskList" class="  task-list flex space-x-4">
+                                    <table class="min-w-full bg-white border border-gray-300">
+                                        <thead>
+                                            <tr class="bg-gray-200">
+                                                <th class="py-2 px-4 border-b">To-Do</th>
+                                                <th class="py-2 px-4 border-b">Done</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">
+                                                    <!-- To-Do Tasks -->
+                                                    <ul id="toDoList">
+                                         
+                                                    </ul>
+                                                </td>
+                                                <td class="py-2 px-4 border-b">
+                                                    <!-- Done Tasks -->
+                                                    <ul id="doneList">
+                                                    
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- <h3 class="text-gray-600">To-Do</h3>
+                                    <ul id="toDoList"></ul>
+
+                                    <h3 class="text-gray-600">Done</h3>
+                                    <ul id="doneList"></ul> -->
+                                </div>
+                            </div>
+
+                            <div id="" class="mt-4">
+                                <button id="progressSection" class="text-md  text-blue-600">Personal Progress</button>
+                                <div id="progress" class="mt-2">
+                                    <!-- Task Completion Progress -->
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Task Completion</label>
+                                    <div class="relative pt-1">
+                                        <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200">
+                                            <div id="taskProgress" style="width: 75%;"
+                                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Project Progress -->
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Project Progress</label>
+                                    <div class="relative pt-1">
+                                        <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-purple-200">
+                                            <div id="projectProgress" style="width: 50%;"
+                                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-600">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Skill Development Progress -->
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Skill
+                                        Development</label>
+                                    <div class="relative pt-1">
+                                        <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-green-200">
+                                            <div id="skillProgress" style="width: 85%;"
+                                                class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-600">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- "More" button and hidden content -->
+                            <button id="toggleMoreBtn"
+                                class="mt-2 text-black-600 underline text-left w-full">More...</button>
+                            <div id="moreContent" class="hidden mt-4">
+                                <ul class="space-y-2">
+                                    <li class="block text-blue-600 ">
+                                    </li>
+                                    <li class="block text-blue-600 ">
+                                    </li>
+                                    <li><a href="#" class="block text-blue-600 ">Followers</a></li>
+                                    <li><a href="#" class="block text-blue-600 ">Following</a></li>
+                                    <li><a href="#" class="block text-blue-600 ">Album</a></li>
+                                </ul>
+                            </div>
+
+                            <!-- "Less..." button, placed at the bottom of hidden content -->
+                            <button id="toggleLessBtn"
+                                class="mt-4 text-blue-600 underline text-left w-full">Less...</button>
+                
+            </div>
+        </aside>
+
+        <!-- Middle Section (Main Content) -->
+        <main class="bg-white shadow-lg rounded-lg p-6 lg:w-2/4">
+            <h2 class="text-xl font-bold text-blue-600 mb-4">Newsfeed</h2>
+            <div class="space-y-4">
+                <!-- Story Input -->
+                <form id="storyForm" class="mb-6">
+                    <textarea id="storyInput" class="w-full p-3 border rounded-md" placeholder="Write a story..."
+                        required></textarea>
+                    <button type="submit" class="bg-blue-600 text-white py-2 px-4 mt-2 rounded-md"><i
+                            class="fas fa-plus mr-2"></i>Post Story</button>
+                    <p id="error-message" class="text-red-500 mt-2 hidden">Story must be at least 3 characters long!</p>
+                </form>
+
+                <!-- Story Display -->
+                <div id="newsFeed" class="space-y-4">
+                    <div class="bg-gray-100 p-4 rounded-md flex justify-between items-center">
+                        <div>
+                            <h3 class="text-md font-semibold">Bhawna Chauhan</h3>
+                            <p class="text-gray-700">Had a productive day working on the Makerble redesign!</p>
+                        </div>
+                        <button class="bg-red-500 text-white px-3 py-1 rounded-md remove-news"><i
+                                class="fas fa-minus"></i></button>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-md flex justify-between items-center">
+                        <div>
+                            <h3 class="text-md font-semibold">Jane Smith</h3>
+                            <p class="text-gray-700">Excited for the new project launch next week!</p>
+                        </div>
+                        <button class="bg-red-500 text-white px-3 py-1 rounded-md remove-news"><i
+                                class="fas fa-minus"></i></button>
+                    </div>
+
+                </div>
+            </div>
+    
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="bg-white shadow-lg rounded-lg p-4 lg:w-1/4">
+        <h2 class="text-xl font-bold text-blue-600 mb-4">Tasks & Projects</h2>
+        <div class="space-y-4">
+
+
+            <!-- Tasks Section -->
+            <section>
+                <h3 class="text-lg font-bold text-green-600">Tasks</h3>
+                <ul id="tasksList" class="space-y-2">
+                    <li class="bg-gray-100 p-2 rounded-md flex justify-between items-center">
+                        Follow up on social authority
+                        <input type="checkbox" class="task-checkbox ml-4" data-task="Follow up on social authority">
+                        <button class="bg-red-500 text-white px-2 py-1 rounded-md remove-task"><i
+                                class="fas fa-minus"></i></button>
+                    </li>
+                    <li class="bg-gray-100 p-2 rounded-md flex justify-between items-center">
+                        Send proposal for the new app
+                        <input type="checkbox" class="task-checkbox ml-4" data-task="Follow up on social authority">
+                        <button class="bg-red-500 text-white px-2 py-1 rounded-md remove-task"><i
+                                class="fas fa-minus"></i></button>
+                    </li>
+                </ul>
+                <form id="taskForm" class="mt-4">
+                    <input type="text" id="taskInput" class="border p-2 w-full rounded-md" placeholder="Add a new task"
+                        required>
+                    <button type="submit" class="bg-green-600 text-white py-2 px-4 mt-2 rounded-md"><i
+                            class="fas fa-plus mr-2"></i>Add Task</button>
+                </form>
+            </section>
+
+            <!-- Projects Section -->
+            <section>
+                <h3 class="text-lg font-bold text-purple-600">Projects</h3>
+                <ul id="projectsList" class="space-y-2">
+                    <li class="bg-gray-100 p-2 rounded-md flex justify-between items-center">
+                        New App Development
+                        <button class="bg-red-500 text-white px-2 py-1 rounded-md remove-project"><i
+                                class="fas fa-minus"></i></button>
+                    </li>
+                    <li class="bg-gray-100 p-2 rounded-md flex justify-between items-center">
+                        Client Feedback Gathering
+                        <button class="bg-red-500 text-white px-2 py-1 rounded-md remove-project"><i
+                                class="fas fa-minus"></i></button>
+                    </li>
+                </ul>
+                <form id="projectForm" class="mt-4">
+                    <input type="text" id="projectInput" class="border p-2 w-full rounded-md"
+                        placeholder="Add a new project" required>
+                    <button type="submit" class="bg-purple-600 text-white py-2 px-4 mt-2 rounded-md"><i
+                            class="fas fa-plus mr-2"></i>Add Project</button>
+                </form>
+            </section>
+        </div>
+    </aside>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white p-6 mt-8">
+        <div class="container mx-auto text-center flex justify-between items-start">
+            <div class="text-left">
+                <h3 class="text-lg font-semibold">Makerble</h3>
+                <ul class="mt-2">
+                    <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:underline">Terms of Service</a></li>
+                    <li><a href="#" class="hover:underline">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="text-left">
+                <h3 class="text-lg font-semibold">Organizations</h3>
+                <ul class="mt-2">
+                    <li><a href="#" class="hover:underline">Control Panel</a></li>
+                    <li><a href="#" class="hover:underline">Discover the Marketplace</a></li>
+                    <li><a href="#" class="hover:underline">Create Organization Account</a></li>
+                </ul>
+            </div>
+            <div class="text-left">
+                <h3 class="text-lg font-semibold">Your Account</h3>
+                <ul class="mt-2">
+                    <li><a href="#" class="hover:underline">Library</a></li>
+                    <li><a href="#" class="hover:underline">Profile</a></li>
+                    <li><a href="#" class="hover:underline">Projects</a></li>
+                    <li><a href="#" class="hover:underline">Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
